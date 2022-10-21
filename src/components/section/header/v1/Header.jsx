@@ -37,10 +37,9 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    
     if (window.martian.isConnected) {
-      checkIfWalletIsConnected();
-      setIsConnected(true); 
+      //checkIfWalletIsConnected();
+      //setIsConnected(true); 
     }
     if (window.fewcha) {
       //window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
