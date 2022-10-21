@@ -36,22 +36,22 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (window.martian.isConnected) {
-      //checkIfWalletIsConnected();
-      //setIsConnected(true); 
-    }
-    if (window.fewcha) {
-      //window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
-      console.log("heeeeeeeh")
-    }
-    if (window.pontem) {
-      window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
-    }
-    if (window.petra) {
-      window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.martian.isConnected) {
+  //     //checkIfWalletIsConnected();
+  //     //setIsConnected(true); 
+  //   }
+  //   if (window.fewcha) {
+  //     //window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
+  //     console.log("heeeeeeeh")
+  //   }
+  //   if (window.pontem) {
+  //     window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
+  //   }
+  //   if (window.petra) {
+  //     window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
+  //   }
+  // }, []);
 
     //check connected
     const checkIfWalletIsConnected = async () => {
