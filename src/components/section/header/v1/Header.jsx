@@ -5,13 +5,22 @@ import { MdNotes } from "react-icons/md";
 import Button from "../../../../common/button";
 import NavWrapper from "./Header.style";
 import MobileMenu from "../mobileMenu/MobileMenu";
-import logo from "../../../../assets/images/logo.png";
+//import logo from "../../../../assets/images/logo.png";
+
+function sliceAddress (s) {
+  return s.slice(0,5) + "..." + s.slice(s.length - 4, s.length)
+}
+
 const Header = () => {
   const { walletModalHandle } = useModal();
   const [isMobileMenu, setMobileMenu] = useState(false);
   const handleMobileMenu = () => {
     setMobileMenu(!isMobileMenu);
   };
+
+  const [currentAccount, setCurrentAccount] = useState("");
+  const [isConnected, setIsConnected] = useState(false); 
+
   useEffect(() => {
     const header = document.getElementById("navbar");
     const handleScroll = window.addEventListener("scroll", () => {
@@ -26,6 +35,34 @@ const Header = () => {
       window.removeEventListener("sticky", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    
+    if (window.martian.isConnected) {
+      checkIfWalletIsConnected();
+      setIsConnected(true); 
+    }
+    if (window.fewcha) {
+      //window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
+      console.log("heeeeeeeh")
+    }
+    if (window.pontem) {
+      window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
+    }
+    if (window.petra) {
+      window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
+    }
+  }, []);
+
+    //check connected
+    const checkIfWalletIsConnected = async () => {
+      const res = await window.martian.connect()
+      const account = res.address
+      console.log(account)
+      setCurrentAccount(account); 
+    };
+
+
   return (
     <NavWrapper className="bithu_header" id="navbar">
       <div className="container">
@@ -49,9 +86,6 @@ const Header = () => {
                 </li>
                 <li>
                   <a href="#roadmap">Roadmap</a>
-                </li>
-                <li>
-                  <a href="#team">Team</a>
                 </li>
                 <li>
                   <a href="#faq">FAQ</a>
@@ -90,14 +124,26 @@ const Header = () => {
               <Button sm variant="outline" className="join_btn">
                  Twitter
               </Button>
-              <Button
-                sm
-                variant="hovered"
-                className="connect_btn"
-                onClick={() => walletModalHandle()}
-              >
-                <FaWallet /> Connect
-              </Button>
+              {
+                isConnected ? 
+                <Button
+                  sm
+                  variant="hovered"
+                  className="connect_btn"
+                >
+                 Connected {sliceAddress(currentAccount)}
+                </Button>
+                : 
+                  <Button
+                  sm
+                  variant="hovered"
+                  className="connect_btn"
+                  onClick={() => walletModalHandle()}
+                >
+                  <FaWallet /> Connect
+                </Button>
+              }
+              
             </div>
           </div>
         </div>

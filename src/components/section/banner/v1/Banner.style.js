@@ -160,6 +160,7 @@ const BannerV1Wrapper = styled.section`
     .bithu_v1_baner_left {
       margin-top: 0px;
       justify-content: flex-start;
+      margin-bottom: -200px
     }
 
     .bithu_v1_baner_right {
@@ -169,7 +170,7 @@ const BannerV1Wrapper = styled.section`
       width: 100%;
 
       .bithu_v1_baner_right_img {
-        width: 55%;
+        width: 95%;
       }
     }
   }
