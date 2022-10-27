@@ -6,40 +6,32 @@ import metamaskIcon from "../../../assets/images/icon/fewcha.png";
 import formatic from "../../../assets/images/icon/martian_wallet.png";
 import trustWalletIcon from "../../../assets/images/icon/petra_wallet.jpg";
 import walletConnect from "../../../assets/images/icon/pontem_wallet.jpg";
+import {useState} from "react"; 
 
-const WalletModal = () => {
+const WalletModal = (setAccountAddr) => {
   const { walletModalHandle } = useModal();
-
-  // const connectMetaMaskWallet = async () => {
-  //   const { ethereum } = window;
-  //   const networkId = await ethereum.request({
-  //     method: "net_version",
-  //   });
-  //   if (networkId === 5) {
-  //     //toast("Make sure you are in polygon network!");
-  //     return;
-  //   }
-  //   const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-  //   await provider.send("eth_requestAccounts", []);
-  //   const signer = provider.getSigner();
-  //   await signer.getAddress();
-  // };
+  //const [accountAddr, setAccountAddr] = useState(); 
 
   const isMartianWalletInstalled = window.martian
   const isPontemWalletInstalled = window.pontem 
   const isPetraWalletInstalled = window.petra 
   const isFewchaWalletInstalled = window.fewcha 
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const getMartianProvider = async () => {
     if(isMartianWalletInstalled) {
       try {
         const res = await window.martian.connect();
-        console.log(res); 
-        //walletModalHandle.
+        const res1 = await window.martian.account()
+        setAccountAddr(res1.address)
+        //refreshPage()
       } catch(err) {
         console.log(err); 
       }
-      return(window.martian);
+      //return(window.martian);
     } else {
       window.open("https://www.martianwallet.xyz/", "_blank");
     }
@@ -50,6 +42,10 @@ const WalletModal = () => {
       try {
         const res = await window.fewcha.connect();
         console.log(res); 
+        res.then( (data) => {
+          data = setAccountAddr(data.address)
+        })
+        //refreshPage()
       } catch(err) {
         console.log(err); 
       }
@@ -63,6 +59,7 @@ const WalletModal = () => {
       try {
         const res = await window.petra.connect();
         console.log(res); 
+        refreshPage()
       } catch(err) {
         console.log(err); 
       }
@@ -76,6 +73,7 @@ const WalletModal = () => {
       try {
         const res = await window.pontem.connect();
         console.log(res); 
+        refreshPage()
       } catch(err) {
         console.log(err); 
       }
@@ -92,9 +90,9 @@ const WalletModal = () => {
         >
           <div className="mint_modal_content">
             <div className="modal_header">
-              <div>
+              {/* <div>
                 <useMetaMask />
-              </div>
+              </div> */}
               <h2>CONNECT WALLET</h2>
               <button onClick={() => walletModalHandle()}>
                 <FiX />

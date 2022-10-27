@@ -16,9 +16,9 @@ const Footer = () => {
 
       <div className="bithu_v1_main_footer">
         <div className="bithu_v1_main_footer_overlay"></div>
-        <div className="three_charectre_img">
+        {/* <div className="three_charectre_img">
           <img src={characterShape} alt="bithu nft character" />
-        </div>
+        </div> */}
 
         <div className="footer_bottom">
           <div className="footer_bottom_content">
@@ -37,7 +37,7 @@ const Footer = () => {
                     </a>
                   </div> */}
                   <div className="copiright_text">
-                    <p>Copyright © 2022 蝦米</p>
+                    {/* <p>Copyright © 2022 蝦米</p> */}
                   </div>
                 </div>
                 <a href="# " className="bact_to_top_btn">

@@ -11,12 +11,16 @@ export const footerLinksV1 = [
     title: "Roadmap",
     url: "#roadmap",
   },
-  {
-    title: "Team",
-    url: "#team",
-  },
+  // {
+  //   title: "Team",
+  //   url: "#team",
+  // },
   {
     title: "FAQ",
     url: "#faq",
+  },
+  {
+    title: "Marketplace",
+    url: "#",
   },
 ];

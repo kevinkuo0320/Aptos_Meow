@@ -20,6 +20,10 @@ const Header = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
   const [isConnected, setIsConnected] = useState(false); 
+  // const [connectMW,  setConnectMW] = useState(false); 
+  // const [connectFewchanWallet, setConnectFewchaWallet] = useState(false); 
+  // const [connectPontemWallet, setConnectPontemWallet] = useState(false); 
+  // const [connectPetraWallet, setConnectPetraWallet] = useState(false); 
 
   useEffect(() => {
     const header = document.getElementById("navbar");
@@ -36,31 +40,42 @@ const Header = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (window.martian.isConnected) {
-  //     //checkIfWalletIsConnected();
-  //     //setIsConnected(true); 
-  //   }
-  //   if (window.fewcha) {
-  //     //window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
-  //     console.log("heeeeeeeh")
-  //   }
-  //   if (window.pontem) {
-  //     window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
-  //   }
-  //   if (window.petra) {
-  //     window.ethereum.on("accountsChanged", checkIfWalletIsConnected);
-  //   }
-  // }, []);
+  //useContext provider to store wallet
+  //useEffect to check wallet address when changing address
+
+  useEffect(() => {
+    const res = window.aptos.account().then(
+      (data) => setCurrentAccount(data.address)
+      );
+      if(currentAccount != "") {
+        setIsConnected(true)
+      }
+    console.log(currentAccount, "account address")
+
+  }, [currentAccount]);
 
     //check connected
-    const checkIfWalletIsConnected = async () => {
-      const res = await window.martian.connect()
-      const account = res.address
-      console.log(account)
-      setCurrentAccount(account); 
-    };
+    // const getMartianWalletAddress = async () => {
+    //   try {
+    //     const res = await window.martian.account()
+    //     const account = res.address
+    //     console.log(account, "getAddreess")
+    //     setCurrentAccount(account); 
+    //     setConnectMW(true)
+    //     setIsConnected(false)
+    //   } catch (err) {
+    //     //setConnectMW(false); 
+    //     console.log(connectMW)
+    //     console.log(err)
+    //   }
+    // };
 
+    //disconnection section 
+    const disconnectMartian = async () => {
+      const res = await window.aptos.disconnect()
+      console.log(res)
+      setIsConnected(false)
+    }
 
   return (
     <NavWrapper className="bithu_header" id="navbar">
@@ -90,7 +105,7 @@ const Header = () => {
                   <a href="#faq">FAQ</a>
                 </li>
                 <li>
-                  <a href="#faq">OpenSea</a>
+                  <a href="#">Marketplace</a>
                 </li>
                 {/* <li className="submenu">
                   <a href="# ">Pages +</a>
@@ -129,8 +144,9 @@ const Header = () => {
                   sm
                   variant="hovered"
                   className="connect_btn"
+                  onClick={disconnectMartian}
                 >
-                 Connected {sliceAddress(currentAccount)}
+                 Disconnect {sliceAddress(currentAccount)}
                 </Button>
                 : 
                   <Button

@@ -46,11 +46,11 @@ const RoadMap = () => {
   return (
     <RoadMapStyleWrapper id="roadmap">
       <div className="container">
-        <SectionTitle title="Roadmap" subtitle="Our Goals" />
-        <div className="v1_roadmap_divider">
+        <SectionTitle title="Roadmap (Coming Soon)" subtitle="Our Goals" />
+        {/* <div className="v1_roadmap_divider">
           <img src={dividerImgShape} alt="bithu nft section divider" />
-        </div>
-        <div className="v1_roadmap_contents_inner">
+        </div> */}
+        {/* <div className="v1_roadmap_contents_inner">
           <div className="v1_roadmap_contents">
             <Slider {...settings}>
               {data?.map((item, i) => (
@@ -67,6 +67,9 @@ const RoadMap = () => {
               ))}
             </Slider>
           </div>
+        </div> */}
+        <div>
+          Coming Soon
         </div>
       </div>
       <div className="bithu_roadmap_mass_gard">

@@ -8,36 +8,40 @@ import {
 
 import openseaIcon from "../images/icon/opensea.svg";
 import mediumIcon from "../images/icon/med.svg";
+import souffle from "../images/icon/souffle.jpg"; 
+import topaz from "../images/icon/topaz.png"; 
+import blueMove from "../images/icon/blueMove.png"; 
 
 const data = [
   {
-    thumb: openseaIcon,
+    thumb: souffle,
+    url: "#",
+    name: "souffle"
+  },
+  {
+    thumb: blueMove,
     url: "#",
   },
   {
-    icon: <FaTwitter />,
+    thumb: topaz,
     url: "#",
   },
-  {
-    icon: <FaLinkedinIn />,
-    url: "#",
-  },
-  {
-    icon: <FaFacebook />,
-    url: "#",
-  },
-  {
-    icon: <FaInstagram />,
-    url: "#",
-  },
-  {
-    icon: <FaTelegramPlane />,
-    url: "#",
-  },
-  {
-    thumb: mediumIcon,
-    url: "#",
-  },
+  // {
+  //   icon: <FaFacebook />,
+  //   url: "#",
+  // },
+  // {
+  //   icon: <FaInstagram />,
+  //   url: "#",
+  // },
+  // {
+  //   icon: <FaTelegramPlane />,
+  //   url: "#",
+  // },
+  // {
+  //   thumb: mediumIcon,
+  //   url: "#",
+  // },
 ];
 
 export default data;

@@ -19,10 +19,10 @@ const Banner = () => {
             <div className="bithu_v1_baner_left">
               <h2>Atpos Meow</h2>
               <h3>
-                <span className="count">
-                  <Counter end={5555} duration={5555} />
-                </span>{" "}
-                / 5555 Minted
+                {/* <span className="count">
+                  <Counter end={3333} duration={5555} />
+                </span>{" "} */}
+                ???? / 3333 Minted
               </h3>
               <div className="banner_buttons">
                 <Button lg variant="mint" onClick={() => mintModalHandle()}>
@@ -35,11 +35,12 @@ const Banner = () => {
               </div>
               <div className="coin-info">
                 <span>Max 2 NFTs per wallet . Price 10 APTOS + gas</span>
-                <span>
+                {/* <span>
                   MINT IS LIVE{" "}
                   <span className="highlighted">UNTIL 25 Oct 04:00H</span>
-                </span>
-                <span>Presale : SOLDOUT</span>
+                </span> */}
+                <span>Presale : Coming soon</span>
+                <span>Presale : Coming soon</span>
               </div>
             </div>
           </div>

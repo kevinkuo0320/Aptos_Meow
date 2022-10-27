@@ -8,17 +8,17 @@ import aboutCardIcon3 from "../../images/icon/aboutus_card_icon3.svg"
     aboutInfo: [
         {
             icon: aboutCardIcon1,
-            title: "Gamming NFTs",
+            title: "PFP NFT",
             text: "Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure."
         },
         {
             icon: aboutCardIcon2,
-            title: "Play to Earn",
+            title: "Maybe to Earn",
             text: 'Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original.'
         },
         {
             icon: aboutCardIcon3,
-            title: "Metaverse Ready",
+            title: "Home for Web 3",
             text: 'Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure.'
         }
     ]

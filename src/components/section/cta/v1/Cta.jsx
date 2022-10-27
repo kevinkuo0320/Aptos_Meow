@@ -1,4 +1,4 @@
-import { FaDiscord } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 import SectionTitle from "../../../../common/sectionTitle";
 import Button from "../../../../common/button";
 import data from "../../../../assets/data/socialProfile";
@@ -37,18 +37,26 @@ const CTA = () => {
             <Button lg variant="mint" className="wishlist_btn">
               Whitelist Now
             </Button>
-            <Button lg variant="blue" className="join_discord_btn">
+            <Button lg variant="white" className="join_discord_btn">
               {" "}
-              <FaDiscord /> Join Discord
+              <FaTwitter /> Join Twitter
             </Button>
           </div>
           <div className="cta_social_links">
             <ul>
               {data?.map((item, i) => (
+                
+
+                
                 <li key={i}>
                   <a href={item.url}>
                     {item.thumb ? (
-                      <img src={item.thumb} alt="bithu nft profiles" />
+                      <div>
+                      <img src={item.thumb} alt="nft profiles" 
+                      style={{height:"50px", width:"50px"}}
+                      />
+                     
+                      </div>
                     ) : (
                       item.icon
                     )}
@@ -58,19 +66,21 @@ const CTA = () => {
                     src={hoverShape}
                     alt="bithu nft hover"
                   />
+                   
                 </li>
+              
               ))}
             </ul>
           </div>
 
           <div className="footer_stras_sect">
-            <div className="footer_stars">
+            {/* <div className="footer_stars">
               {particleShapes?.map((shape, i) => (
                 <span key={i} className={`star_${i + 1}`}>
                   <img src={shape} alt="bithu nft background particle" />
                 </span>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
