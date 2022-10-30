@@ -25,7 +25,8 @@ const Banner = () => {
                 ???? / 3333 Minted
               </h3>
               <div className="banner_buttons">
-                <Button lg variant="mint" onClick={() => mintModalHandle()}>
+                <Button lg variant="mint" //onClick={() => mintModalHandle()}
+                >
                   {" "}
                   Mint now
                 </Button>
