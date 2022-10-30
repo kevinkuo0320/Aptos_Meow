@@ -1,11 +1,12 @@
 import { useModal } from "../../../../utils/ModalContext";
 import { useEffect, useState } from "react";
-import { FaDiscord, FaWallet } from "react-icons/fa";
+import { FaWallet } from "react-icons/fa";
 import { MdNotes } from "react-icons/md";
 import Button from "../../../../common/button";
 import NavWrapper from "./Header.style";
 import MobileMenu from "../mobileMenu/MobileMenu";
 //import logo from "../../../../assets/images/logo.png";
+import { AptosWalletName, useWallet } from "@manahippo/aptos-wallet-adapter"
 
 function sliceAddress (s) {
   return s.slice(0,5) + "..." + s.slice(s.length - 4, s.length)
@@ -20,10 +21,8 @@ const Header = () => {
 
   const [currentAccount, setCurrentAccount] = useState("");
   const [isConnected, setIsConnected] = useState(false); 
-  // const [connectMW,  setConnectMW] = useState(false); 
-  // const [connectFewchanWallet, setConnectFewchaWallet] = useState(false); 
-  // const [connectPontemWallet, setConnectPontemWallet] = useState(false); 
-  // const [connectPetraWallet, setConnectPetraWallet] = useState(false); 
+
+  const { connect, disconnect, connected } = useWallet();
 
   useEffect(() => {
     const header = document.getElementById("navbar");
@@ -43,32 +42,16 @@ const Header = () => {
   //useContext provider to store wallet
   //useEffect to check wallet address when changing address
 
-  useEffect(() => {
-    const res = window.aptos.account().then(
-      (data) => setCurrentAccount(data.address)
-      );
-      if(currentAccount != "") {
-        setIsConnected(true)
-      }
-    console.log(currentAccount, "account address")
+  // useEffect(() => {
+  //   const res = window.aptos.account().then(
+  //     (data) => setCurrentAccount(data.address)
+  //     );
+  //     if(currentAccount != "") {
+  //       setIsConnected(true)
+  //     }
+  //   console.log(currentAccount, "account address")
 
-  }, [currentAccount]);
-
-    //check connected
-    // const getMartianWalletAddress = async () => {
-    //   try {
-    //     const res = await window.martian.account()
-    //     const account = res.address
-    //     console.log(account, "getAddreess")
-    //     setCurrentAccount(account); 
-    //     setConnectMW(true)
-    //     setIsConnected(false)
-    //   } catch (err) {
-    //     //setConnectMW(false); 
-    //     console.log(connectMW)
-    //     console.log(err)
-    //   }
-    // };
+  // }, [currentAccount]);
 
     //disconnection section 
     const disconnectMartian = async () => {
@@ -139,12 +122,12 @@ const Header = () => {
                  Twitter
               </Button>
               {
-                isConnected ? 
+                connected ? 
                 <Button
                   sm
                   variant="hovered"
                   className="connect_btn"
-                  onClick={disconnectMartian}
+                  onClick={disconnect()}
                 >
                  Disconnect {sliceAddress(currentAccount)}
                 </Button>
@@ -153,11 +136,13 @@ const Header = () => {
                   sm
                   variant="hovered"
                   className="connect_btn"
-                  onClick={() => walletModalHandle()}
+                  onClick={console.log(connected)}
                 >
                   <FaWallet /> Connect
                 </Button>
               }
+
+              
               
             </div>
           </div>

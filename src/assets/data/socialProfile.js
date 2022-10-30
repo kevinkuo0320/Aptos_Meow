@@ -16,7 +16,7 @@ const data = [
   {
     thumb: souffle,
     url: "#",
-    name: "souffle"
+    
   },
   {
     thumb: blueMove,
