@@ -40,41 +40,30 @@ const MobileMenu = ({ mobileMenuhandle }) => {
               <a href="#roadmap">Roadmap</a>
             </li>
             <li className="mobile_menu_hide">
-              <a href="#team">Team</a>
-            </li>
-            <li className="mobile_menu_hide">
               <a href="#faq">FAQ</a>
             </li>
-            {/* <li className="submenu mobile_submenu" onClick={handleSubmenu}>
-              <a href="# ">Pages +</a>
+            <li className="submenu mobile_submenu" onClick={handleSubmenu}>
+              <a href="# ">Marketplace</a>
               <ul
                 className={`sub_menu_list mobile_sub_menu_list ${
                   isSubmenu === true && "submenu_hovered"
                 }`}
               >
+                
                 <li className="mobile_menu_hide">
-                  <a href="/">Home One</a>
+                  <a href="https://www.topaz.so/" target="_blank">Topaz</a>
                 </li>
                 <li className="mobile_menu_hide">
-                  <a href="/home-two">Home Two</a>
+                  <a href="https://bluemove.net/" target="_blank">BlueMove</a>
                 </li>
                 <li className="mobile_menu_hide">
-                  <a href="/home-three">Home Three</a>
-                </li>
-                <li className="mobile_menu_hide">
-                  <a href="/blogs">Latest Blog</a>
-                </li>
-                <li className="mobile_menu_hide">
-                  <a href="/post">Blog Details</a>
+                  <a href="https://souffl3.com/" target="_blank"> Souffl3</a>
                 </li>
               </ul>
-            </li> */}
+            </li>
           </ul>
         </div>
         <div className="mobile_menu_social_links">
-          <a href="# ">
-            <img src={openseaIcon} alt="bithu social icon" />
-          </a>
           <a href="# ">
             <FaTwitter />
           </a>

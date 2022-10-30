@@ -87,9 +87,25 @@ const Header = () => {
                 <li>
                   <a href="#faq">FAQ</a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#">Marketplace</a>
-                </li>
+                </li> */}
+                <li className="submenu">
+                  <a>Marketplace </a>
+                  <div className="sub_menu_sect">
+                    <ul className="sub_menu_list">
+                      <li>
+                        <a href="https://www.topaz.so/" target="_blank">Topaz</a>
+                      </li>
+                      <li>
+                        <a href="https://bluemove.net/" target="_blank">BlueMove</a>
+                      </li>
+                      <li>
+                        <a href="https://souffl3.com/" target="_blank"> Souffl3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li> 
                 {/* <li className="submenu">
                   <a href="# ">Pages +</a>
                   <div className="sub_menu_sect">

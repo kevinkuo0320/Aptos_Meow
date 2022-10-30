@@ -15,16 +15,16 @@ import blueMove from "../images/icon/blueMove.png";
 const data = [
   {
     thumb: souffle,
-    url: "#",
+    url: "https://souffl3.com/",
     
   },
   {
     thumb: blueMove,
-    url: "#",
+    url: "https://bluemove.net/",
   },
   {
     thumb: topaz,
-    url: "#",
+    url: "https://www.topaz.so/",
   },
   // {
   //   icon: <FaFacebook />,

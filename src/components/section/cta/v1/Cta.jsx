@@ -49,7 +49,7 @@ const CTA = () => {
 
                 
                 <li key={i}>
-                  <a href={item.url}>
+                  <a href={item.url} target="_blank">
                     {item.thumb ? (
                       <div>
                       <img src={item.thumb} alt="nft profiles" 
