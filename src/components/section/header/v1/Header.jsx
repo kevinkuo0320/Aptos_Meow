@@ -6,7 +6,8 @@ import Button from "../../../../common/button";
 import NavWrapper from "./Header.style";
 import MobileMenu from "../mobileMenu/MobileMenu";
 //import logo from "../../../../assets/images/logo.png";
-import { AptosWalletName, useWallet } from "@manahippo/aptos-wallet-adapter"
+//import { AptosWalletName, useWallet } from "@manahippo/aptos-wallet-adapter"
+import WalletButton from "./ConnectWalletButton";
 
 function sliceAddress (s) {
   return s.slice(0,5) + "..." + s.slice(s.length - 4, s.length)
@@ -18,11 +19,6 @@ const Header = () => {
   const handleMobileMenu = () => {
     setMobileMenu(!isMobileMenu);
   };
-
-  const [currentAccount, setCurrentAccount] = useState("");
-  const [isConnected, setIsConnected] = useState(false); 
-
-  const { connect, disconnect, connected } = useWallet();
 
   useEffect(() => {
     const header = document.getElementById("navbar");
@@ -54,11 +50,11 @@ const Header = () => {
   // }, [currentAccount]);
 
     //disconnection section 
-    const disconnectMartian = async () => {
-      const res = await window.aptos.disconnect()
-      console.log(res)
-      setIsConnected(false)
-    }
+    // const disconnectMartian = async () => {
+    //   const res = await window.aptos.disconnect()
+    //   console.log(res)
+    //   setIsConnected(false)
+    // }
 
   return (
     <NavWrapper className="bithu_header" id="navbar">
@@ -137,8 +133,8 @@ const Header = () => {
               <Button sm variant="outline" className="join_btn">
                  Twitter
               </Button>
-              {
-                connected ? 
+              {/* {
+                !connected ? 
                 <Button
                   sm
                   variant="hovered"
@@ -156,9 +152,18 @@ const Header = () => {
                 >
                   <FaWallet /> Connect
                 </Button>
-              }
+              } */}
+                  {/* <Button
+                  sm
+                  variant="hovered"
+                  className="connect_btn"
+                  onClick={walletModalHandle}
+                >
+                  <FaWallet /> Connect
+                </Button>
+               */}
 
-              
+               <WalletButton/>
               
             </div>
           </div>
