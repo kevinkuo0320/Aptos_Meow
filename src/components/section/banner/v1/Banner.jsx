@@ -8,6 +8,7 @@ import mintLiveDownArrow from "../../../../assets/images/nft/mint_live_down_arro
 import mintLiveText from "../../../../assets/images/nft/mint_live_text.png";
 import homeImageBG from "../../../../assets/images/nft/home_img_bg.png";
 import catNFTimg from "../../../../assets/images/nft/cat_nft.jpg"; 
+import MintButton from "../../../../helpers/mintButtons";
 
 const Banner = () => {
   const { mintModalHandle } = useModal();
@@ -25,11 +26,7 @@ const Banner = () => {
                 ???? / 3333 Minted
               </h3>
               <div className="banner_buttons">
-                <Button lg variant="mint" //onClick={() => mintModalHandle()}
-                >
-                  {" "}
-                  Mint now
-                </Button>
+                <MintButton/>
                 <Button lg variant="outline">
                   Wishlist now
                 </Button>
