@@ -9,9 +9,6 @@ import MobileMenu from "../mobileMenu/MobileMenu";
 //import { AptosWalletName, useWallet } from "@manahippo/aptos-wallet-adapter"
 import WalletButton from "./ConnectWalletButton";
 
-function sliceAddress (s) {
-  return s.slice(0,5) + "..." + s.slice(s.length - 4, s.length)
-}
 
 const Header = () => {
   const { walletModalHandle } = useModal();

@@ -6,6 +6,7 @@ const ContextProvider = ({ children }) => {
   const [walletModalvisibility, setModalvisibility] = useState(false);
   const [shareModalVisibility, setShareModalvisibility] = useState(false);
 
+
   const mintModalHandle = () => {
     setVisibility(!visibility);
   };

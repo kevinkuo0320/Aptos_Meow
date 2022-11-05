@@ -8,89 +8,27 @@ import trustWalletIcon from "../../../assets/images/icon/petra_wallet.jpg";
 import walletConnect from "../../../assets/images/icon/pontem_wallet.jpg";
 import {useState} from "react"; 
 import {useWallet} from "@manahippo/aptos-wallet-adapter";
+import { ToastContainer, toast } from 'react-toastify';
 
 const WalletModal = (setAccountAddr) => {
   const { walletModalHandle } = useModal();
-  //const [accountAddr, setAccountAddr] = useState(); 
-
-//   const isMartianWalletInstalled = window.martian
-//   const isPontemWalletInstalled = window.pontem 
-//   const isPetraWalletInstalled = window.petra 
-//   const isFewchaWalletInstalled = window.fewcha 
-
-//   function refreshPage() {
-//     window.location.reload(false);
-//   }
-
-//   const getMartianProvider = async () => {
-//     if(isMartianWalletInstalled) {
-//       try {
-//         const res = await window.martian.connect();
-//         const res1 = await window.martian.account()
-//         setAccountAddr(res1.address)
-//         //refreshPage()
-//       } catch(err) {
-//         console.log(err); 
-//       }
-//       //return(window.martian);
-//     } else {
-//       window.open("https://www.martianwallet.xyz/", "_blank");
-//     }
-//   };
-
-//   const getFewchaProvider = async () => {
-//     if(isFewchaWalletInstalled) {
-//       try {
-//         const res = await window.fewcha.connect();
-//         console.log(res); 
-//         res.then( (data) => {
-//           data = setAccountAddr(data.address)
-//         })
-//         //refreshPage()
-//       } catch(err) {
-//         console.log(err); 
-//       }
-//     } else {
-//       window.open("https://fewcha.app/", "_blank");
-//     }
-//   };
-
-//   const getPetraProvider = async () => {
-//     if(isPetraWalletInstalled) {
-//       try {
-//         const res = await window.petra.connect();
-//         console.log(res); 
-//         refreshPage()
-//       } catch(err) {
-//         console.log(err); 
-//       }
-//     } else {
-//       window.open("https://petra.app/", "_blank");
-//     }
-// };
-
-//   const getPontemProvider = async () => {
-//     if(isPontemWalletInstalled) {
-//       try {
-//         const res = await window.pontem.connect();
-//         console.log(res); 
-//         refreshPage()
-//       } catch(err) {
-//         console.log(err); 
-//       }
-//     } else {
-//       window.open("https://pontem.network/", "_blank");
-//     } 
-// };
-
 const wallet = useWallet(); 
+
+function disPlayToast2() {
+  toast.success("wallet Connected", {
+      position: toast.POSITION.BOTTOM_RIGHT, 
+      autoClose: 2000,
+  })
+}
 
   return (
     <>
       <WalletModalStyleWrapper className="modal_overlay">
+      <ToastContainer />
         <div
           className="mint_modal_box"
         >
+          
           <div className="mint_modal_content">
             <div className="modal_header">
               {/* <div>
@@ -110,6 +48,7 @@ const wallet = useWallet();
                   async () => {
                     await wallet.select("Fewcha");
                     walletModalHandle(); 
+                    disPlayToast2()
                     //onConnect();
                 }} style={{color:"white"}}>
                   <img src={metamaskIcon} alt="Meta-mask" style={{height:"30px"}}/>
@@ -123,6 +62,7 @@ const wallet = useWallet();
                     async () => {
                       await wallet.select("Martian");
                       walletModalHandle(); 
+                      disPlayToast2()
                       //onConnect();
                   } 
                 } style={{color:"white"}}>
@@ -136,6 +76,7 @@ const wallet = useWallet();
                   async () => {
                     await wallet.select("Petra");
                     walletModalHandle(); 
+                    disPlayToast2()
                     //onConnect();
                 }
                 } style={{color:"white"}}>
@@ -149,6 +90,7 @@ const wallet = useWallet();
                     async () => {
                       await wallet.select("Pontem");
                       walletModalHandle(); 
+                      disPlayToast2()
                       //onConnect();
                   }
                 } style={{color:"white"}}>
@@ -176,6 +118,7 @@ const wallet = useWallet();
             </div>
           </div>
         </div>
+        <ToastContainer/>
       </WalletModalStyleWrapper>
     </>
   );

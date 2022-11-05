@@ -12,11 +12,18 @@ import FAQ from "../components/section/faq/v1";
 import Footer from "../components/section/footer/v1";
 import MintNowModal from "../common/modal/mintNowModal";
 import WalletModal from "../common/modal/walletModal/WalletModal";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
 const HomeV1 = () => {
   const { visibility, walletModalvisibility } = useModal();
+  ; 
+
   return (
+    
     <Layout>
        <GlobalStyles /> 
+      
       {visibility && <MintNowModal />}
       {walletModalvisibility && <WalletModal />}
       <Header />
